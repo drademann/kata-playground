@@ -7,7 +7,7 @@ using Cucumber and Java.
 - Do it incrementally. 
 - Solve requirements as simple as possible.
 - Refactor after each successful test.
-- This is about to learn TDD/BDD *"red, green, repeat"*
+- This is about learning TDD/BDD *"red, green, repeat"*
 
 ## String Calculator 
 
