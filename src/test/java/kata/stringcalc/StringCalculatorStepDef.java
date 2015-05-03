@@ -1,8 +1,9 @@
 package kata.stringcalc;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import cucumber.api.java.en.*;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 public class StringCalculatorStepDef {
 
@@ -22,6 +23,6 @@ public class StringCalculatorStepDef {
 
 	@Then("^the result should be (\\d+)$")
 	public void the_result_should_be(int expectedResult) throws Throwable {
-		assert result == expectedResult : "expected result is " + expectedResult + " but was " + result;
+		assertThat(result, equalTo(expectedResult));
 	}
 }
