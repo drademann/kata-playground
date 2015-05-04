@@ -2,8 +2,7 @@ package kata.stringcalc;
 
 import cucumber.api.java.en.*;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.fest.assertions.api.Assertions.*;
 
 public class StringCalculatorStepDef {
 
@@ -23,6 +22,6 @@ public class StringCalculatorStepDef {
 
 	@Then("^the result should be (\\d+)$")
 	public void the_result_should_be(int expectedResult) throws Throwable {
-		assertThat(result, equalTo(expectedResult));
+		assertThat(result).isEqualTo(expectedResult);
 	}
 }

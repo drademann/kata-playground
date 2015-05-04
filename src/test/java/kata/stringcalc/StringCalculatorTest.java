@@ -2,8 +2,7 @@ package kata.stringcalc;
 
 import org.junit.*;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.fest.assertions.api.Assertions.*;
 
 public class StringCalculatorTest {
 
@@ -11,6 +10,6 @@ public class StringCalculatorTest {
 	public void givenEmptyStringReturnsZero() {
 		int result = new StringCalculator().calc("");
 
-		assertThat(result, equalTo(0));
+		assertThat(result).isEqualTo(0);
 	}
 }
