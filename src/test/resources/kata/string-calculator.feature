@@ -1,4 +1,4 @@
-Feature: Calculating the sum of numbers contained in string.
+Feature: String Calculator
 
   Scenario: The calculator should return 0 if given an empty input string.
     Given the input string is empty
