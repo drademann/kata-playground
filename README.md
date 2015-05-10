@@ -2,10 +2,10 @@
 This is a project setup to quickly get started with various Coding Katas using Cucumber, JUnit and Java 8.
 
 Currently the following Katas are included:
-* [String Calculator] (Kata-StringCalculator) (thanks to [Roy Osherove](http://osherove.com/tdd-kata-1/))
-* [Prime Factors] (Kata-PrimeFactors) (thanks to _Uncle Bob_ [Robert C. Martin] (http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata))
+- String Calculator
+- Prime Factors
 
-(see [Wiki] (Home) for more details)
+(see [Wiki] (https://github.com/drademann/kata-playground/wiki) for more details)
 
 Remember the TDD and Kata rules:
 - Do one task at a time. 
