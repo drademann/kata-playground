@@ -4,6 +4,7 @@ This is a project setup to quickly get started with various Coding Katas using C
 Currently the following Katas are included:
 - String Calculator
 - Prime Factors
+- Conway's Game of Life
 
 (see [Wiki] (https://github.com/drademann/kata-playground/wiki) for more details)
 
