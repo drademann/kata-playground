@@ -24,6 +24,11 @@ public class PrimeFactorsSteps {
 		primeFactorsDomain.setPrimeFactors(primeFactors);
 	}
 
+	@Then("^the generator should return no prime factors$")
+	public void thenResultingPrimeFactorsShouldBeEmpty() throws Throwable {
+		assertThat(primeFactorsDomain.getPrimeFactors()).isEmpty();
+	}
+
 	@Then("^the resulting prime factors should be ([0-9,]*)$")
 	public void thenResultingPrimeFactorsShouldBe(List<Integer> expectedPrimeFactors) {
 		List<Integer> primeFactors = primeFactorsDomain.getPrimeFactors();
