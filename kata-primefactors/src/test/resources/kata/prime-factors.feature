@@ -1,5 +1,10 @@
 Feature: Prime Factor Generator
 
+  Requirements:
+
+  For an integer value n the generator should return all prime factors
+  as an ordered list.
+
   Scenario: The generator should return no primes for an input value of 1.
     Given I have an integer value of 1
     When generating the prime factors of the integer value
