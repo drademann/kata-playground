@@ -1,5 +1,3 @@
-package kata;
-
 import cucumber.api.junit.*;
 import org.junit.runner.*;
 
