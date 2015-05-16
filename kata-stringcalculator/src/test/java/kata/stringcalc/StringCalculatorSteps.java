@@ -7,20 +7,17 @@ import static org.fest.assertions.api.Assertions.*;
 
 public class StringCalculatorSteps {
 
+	KnowsStringInputDomain stringInputDomain;
 	KnowsStringCalculatorDomain stringCalculatorDomain;
 
-	public StringCalculatorSteps(KnowsStringCalculatorDomain stringCalculatorDomain) {
+	public StringCalculatorSteps(KnowsStringInputDomain stringInputDomain, KnowsStringCalculatorDomain stringCalculatorDomain) {
+		this.stringInputDomain = stringInputDomain;
 		this.stringCalculatorDomain = stringCalculatorDomain;
-	}
-
-	@Given("^the input string is empty$")
-	public void givenInputStringIsEmpty() throws Throwable {
-		stringCalculatorDomain.setInput("");
 	}
 
 	@When("^calculating the sum$")
 	public void whenCalculatingSum() throws Throwable {
-		stringCalculatorDomain.setResult(new StringCalculator().calc(stringCalculatorDomain.getInput()));
+		stringCalculatorDomain.setResult(new StringCalculator().calc(stringInputDomain.getInput()));
 	}
 
 	@Then("^the result should be (\\d+)$")
