@@ -1,8 +1,8 @@
-package kata.gameoflife;
+package kata.bowlinggame;
 
 import org.junit.*;
 
-public class GameOfLifeTest {
+public class BowlingGameTest {
 
 	@Test
 	public void test() {

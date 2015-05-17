@@ -10,6 +10,6 @@
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>kata-gameoflife</artifactId>
+	<artifactId>kata-bowlinggame</artifactId>
 
 </project>

@@ -17,6 +17,7 @@
 		<module>kata-stringcalculator</module>
 		<module>kata-primefactors</module>
 		<module>kata-gameoflife</module>
+		<module>kata-bowlinggame</module>
 	</modules>
 
 	<dependencies>
