@@ -5,6 +5,7 @@ Currently the following Katas are included:
 - String Calculator
 - Prime Factors
 - Conway's Game of Life
+- Bowling Game
 
 (see [Wiki] (https://github.com/drademann/kata-playground/wiki) for more details)
 
