@@ -1,7 +1,7 @@
 package kata.primefactors;
 
-import cucumber.api.java.en.*;
-import kata.primefactors.support.*;
+import cucumber.api.java.en.Given;
+import kata.primefactors.support.KnowsIntegerDomain;
 
 public class IntegerSteps {
 

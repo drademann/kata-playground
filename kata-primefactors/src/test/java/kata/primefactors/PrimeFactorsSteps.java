@@ -1,11 +1,13 @@
 package kata.primefactors;
 
-import cucumber.api.java.en.*;
-import kata.primefactors.support.*;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import kata.primefactors.support.KnowsIntegerDomain;
+import kata.primefactors.support.KnowsPrimeFactorsDomain;
 
-import java.util.*;
+import java.util.List;
 
-import static org.fest.assertions.api.Assertions.*;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class PrimeFactorsSteps {
 

@@ -1,10 +1,10 @@
 package kata.primefactors;
 
-import org.junit.*;
+import org.junit.Test;
 
-import java.util.*;
+import java.util.List;
 
-import static org.fest.assertions.api.Assertions.*;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class PrimeFactorsTest {
 

@@ -1,6 +1,6 @@
 package kata.primefactors.support;
 
-import java.util.*;
+import java.util.List;
 
 public class KnowsPrimeFactorsDomain {
 

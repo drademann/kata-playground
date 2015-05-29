@@ -1,8 +1,8 @@
 package kata.stringcalc;
 
-import org.junit.*;
+import org.junit.Test;
 
-import static org.fest.assertions.api.Assertions.*;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class StringCalculatorTest {
 

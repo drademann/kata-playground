@@ -1,7 +1,7 @@
 package kata.stringcalc;
 
-import cucumber.api.java.en.*;
-import kata.stringcalc.support.*;
+import cucumber.api.java.en.Given;
+import kata.stringcalc.support.KnowsStringInputDomain;
 
 public class StringInputSteps {
 

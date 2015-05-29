@@ -1,6 +1,6 @@
 package kata.bowlinggame;
 
-import kata.bowlinggame.support.*;
+import kata.bowlinggame.support.KnowsBowlingGameDomain;
 
 public class BowlingGameSteps {
 

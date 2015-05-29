@@ -1,6 +1,6 @@
 package kata.gameoflife;
 
-import org.junit.*;
+import org.junit.Test;
 
 public class GameOfLifeTest {
 

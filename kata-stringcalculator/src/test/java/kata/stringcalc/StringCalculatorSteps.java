@@ -1,9 +1,11 @@
 package kata.stringcalc;
 
-import cucumber.api.java.en.*;
-import kata.stringcalc.support.*;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import kata.stringcalc.support.KnowsStringCalculatorDomain;
+import kata.stringcalc.support.KnowsStringInputDomain;
 
-import static org.fest.assertions.api.Assertions.*;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class StringCalculatorSteps {
 

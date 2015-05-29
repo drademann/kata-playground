@@ -1,6 +1,6 @@
 package kata.gameoflife;
 
-import kata.gameoflife.support.*;
+import kata.gameoflife.support.KnowsGameOfLifeDomain;
 
 public class GameOfLifeSteps {
 

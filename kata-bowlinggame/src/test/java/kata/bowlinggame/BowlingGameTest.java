@@ -1,6 +1,6 @@
 package kata.bowlinggame;
 
-import org.junit.*;
+import org.junit.Test;
 
 public class BowlingGameTest {
 
