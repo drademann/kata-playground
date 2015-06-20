@@ -21,16 +21,16 @@ Feature: String Calculator
   then the result is the sum of all numbers. (e.g. //;\n1;2 should return 3)
 
   Providing a negative number when calculating
-  then throws an exception “negatives not allowed” - and the negative(s) that was passed.
+  then throws an exception "negatives not allowed" - and the negative(s) that was passed.
 
   Providing numbers bigger than 1000 when calculating
   then such numbers should be ignored in the calculation.
 
-  Providing delimiters of any length (“//[delimiter]\n”) when calculating
-  then the result is the sum of the numbers. (e.g. “//[xx]\n1xx2xx3” should return 6)
+  Providing delimiters of any length ("//[delimiter]\n") when calculating
+  then the result is the sum of the numbers. (e.g. "//[xx]\n1xx2xx3" should return 6)
 
-  Providing multiple delimiters (“//[delim1][delim2]\n”) when calculating
-  then the result is the sum of the numbers. (e.g. “//[x][y]\n1x2y3” should return 6)
+  Providing multiple delimiters ("//[delim1][delim2]\n") when calculating
+  then the result is the sum of the numbers. (e.g. "//[x][y]\n1x2y3" should return 6)
 
   Providing multiple delimiters with variable length when calculating
   then the result is the sum of the numbers.
