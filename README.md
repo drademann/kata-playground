@@ -6,6 +6,7 @@ Currently the following Katas are included:
 - Prime Factors
 - Conway's Game of Life
 - Bowling Game
+- Word Chains
 
 (see [Wiki] (https://github.com/drademann/kata-playground/wiki) for more details)
 
