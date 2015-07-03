@@ -18,6 +18,7 @@
         <module>kata-primefactors</module>
         <module>kata-gameoflife</module>
         <module>kata-bowlinggame</module>
+        <module>kata-wordchains</module>
     </modules>
 
     <dependencies>
