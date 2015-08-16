@@ -1,5 +1,5 @@
 # kata-playground
-This is a project setup to quickly get started with various Coding Katas using Cucumber, JUnit and Java 8.
+This is a project setup to quickly get started with various Coding Katas using JUnit and Java 8.
 
 Currently the following Katas are included:
 - String Calculator
@@ -8,7 +8,7 @@ Currently the following Katas are included:
 - Bowling Game
 - Word Chains
 
-(see [Wiki] (https://github.com/drademann/kata-playground/wiki) for more details)
+A description with requirements for each Kata is included in each test class (see its JavaDoc).
 
 Remember the TDD and Kata rules:
 - Do one task at a time. 
