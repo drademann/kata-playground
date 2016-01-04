@@ -10,9 +10,7 @@ import org.junit.Test;
  * number of pins knocked down, plus bonuses for strikes and spares.</p>
  *
  * <p>A spare is when the player knocks down all 10 pins in two tries.  The bonus for
- * that frame is the number of pins knocked down by the next roll.  So in frame 3
- * above, the score is 10 (the total number knocked down) plus a bonus of 5 (the
- * number of pins knocked down on the next roll.)</p>
+ * that frame is the number of pins knocked down by the next roll.</p>
  *
  * <p>A strike is when the player knocks down all 10 pins on his first try.  The bonus
  * for that frame is the value of the next two balls rolled.</p>
