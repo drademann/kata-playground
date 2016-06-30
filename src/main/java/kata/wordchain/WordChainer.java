@@ -1,4 +1,4 @@
-package kata;
+package kata.wordchain;
 
 import java.util.Collection;
 import java.util.List;
@@ -11,15 +11,15 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.IntStream.range;
 
-public class WordChainer {
+class WordChainer {
 
 	private final Map<Integer, List<String>> availableWordsByCharCount;
 
-	public WordChainer(Collection<String> wordList) {
+	WordChainer(Collection<String> wordList) {
 		availableWordsByCharCount = wordList.stream().collect(groupingBy(String::length));
 	}
 
-	public Optional<WordChain> find(String from, String to) {
+	Optional<WordChain> find(String from, String to) {
 		return ifValidInput(from, to)
 				? findChain(asList(new WordChain(from)), to)
 				: Optional.empty();

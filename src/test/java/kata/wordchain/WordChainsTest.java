@@ -1,4 +1,4 @@
-package kata;
+package kata.wordchain;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +17,7 @@ import static java.util.Collections.emptyList;
 import static java.util.Optional.ofNullable;
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 /**
  * <strong>Requirements</strong>
@@ -56,7 +57,13 @@ public class WordChainsTest {
 
 	@Test
 	public void givenOneCharDifference_returnListWithFromTo() {
-		assertThat(wordChainer.find("aa", "ab").get().path()).containsExactly("aa", "ab");
+		Optional<WordChain> wordChain = wordChainer.find("aa", "ab");
+		if (wordChain.isPresent()) {
+			assertThat(wordChain.get().path()).containsExactly("aa", "ab");
+		}
+		else {
+			fail("wordchain is empty");
+		}
 	}
 
 	@Test
@@ -86,7 +93,13 @@ public class WordChainsTest {
 
 	@Test
 	public void givenWordList_whenFindPath_shouldReturnKnownPath() {
-		assertThat(wordChainer.find("aaa", "bab").get().path()).containsExactly("aaa", "baa", "bab");
+		Optional<WordChain> wordChain = wordChainer.find("aaa", "bab");
+		if (wordChain.isPresent()) {
+			assertThat(wordChain.get().path()).containsExactly("aaa", "baa", "bab");
+		}
+		else {
+			fail("wordchain is empty");
+		}
 	}
 
 	@Test
@@ -98,7 +111,13 @@ public class WordChainsTest {
 	public void givenAllEnglishWords_findExamples() {
 		wordChainer = new WordChainer(loadWords());
 
-		assertThat(wordChainer.find("cat", "dog").get().path()).containsExactly("cat", "cot", "cog", "dog");
+		Optional<WordChain> wordChain = wordChainer.find("cat", "dog");
+		if (wordChain.isPresent()) {
+			assertThat(wordChain.get().path()).containsExactly("cat", "cot", "cog", "dog");
+		}
+		else {
+			fail("wordchain is empty");
+		}
 	}
 
 	private static final Logger log = Logger.getLogger("wordchain");

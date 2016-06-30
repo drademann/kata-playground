@@ -1,6 +1,8 @@
-package kata;
+package kata.gameoflife;
 
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * <strong>Requirements</strong>
@@ -16,5 +18,6 @@ public class GameOfLifeTest {
 	@Test
 	public void test() {
 		// start your tests
+		assertThat(true).isTrue();
 	}
 }

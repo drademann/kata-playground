@@ -1,6 +1,9 @@
-package kata;
+package kata.bowling;
 
 import org.junit.Test;
+
+import static java.util.Arrays.stream;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * <strong>Requirements</strong>
@@ -29,12 +32,15 @@ import org.junit.Test;
  */
 public class BowlingGameTest {
 
+	private BowlingGame gameWith(int... rolls) {
+		BowlingGame game = new BowlingGame();
+		stream(rolls).forEach(game::roll);
+		return game;
+	}
+
 	@Test
-	public void test() {
-		// start your tests
+	public void givenNewRoll_shouldAddNewPins() {
+		assertThat(gameWith(1).rollAt(0)).isEqualTo(1);
 	}
 
-	private static class Game {
-
-	}
 }
