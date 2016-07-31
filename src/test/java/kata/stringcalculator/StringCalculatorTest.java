@@ -56,34 +56,34 @@ public class StringCalculatorTest {
 	}
 
 	@Test
-	public void givenSingleNumberString_shouldReturnNumber() {
+	public void givenSingleNumber_shouldReturnNumber() {
 		assertThat(sumOf("1")).isEqualTo(1);
 		assertThat(sumOf("2")).isEqualTo(2);
 	}
 
 	@Test
-	public void givenCommaSeparatedNumbers_shouldReturnSumOfNumbers() {
+	public void givenMultipleNumbers_shouldReturnSum() {
 		assertThat(sumOf("1,2")).isEqualTo(3);
 		assertThat(sumOf("1,2,3")).isEqualTo(6);
 	}
 
 	@Test
-	public void givenLineBreakInString_shouldReturnSumOfNumbers() {
+	public void givenLineBreakInBetween_shouldStillReturnSum() {
 		assertThat(sumOf("1\n2,3")).isEqualTo(6);
 	}
 
 	@Test
-	public void givenCustomDelimiter_shouldUseDelimiterToReturnSumOfNumbers() {
-		assertThat(sumOf("//;\n1;2;3")).isEqualTo(6);
+	public void givenCustomDelimiter_shouldUseDelimiter() {
+		assertThat(sumOf("//:\n1:2:3")).isEqualTo(6);
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void givenNegativeNumbers_shouldThrowIllegalArgumentException() {
+	public void givenNegativeNumber_throwsException() {
 		sumOf("-1");
 	}
 
 	@Test
-	public void givenNumberGreaterThan1000_shouldIgnoreThoseNumber() {
+	public void givenNumbersGreaterThan1000_shouldBeIgnored() {
 		assertThat(sumOf("1,20,300,4000")).isEqualTo(321);
 	}
 }

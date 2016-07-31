@@ -1,55 +1,66 @@
 package kata.stringcalculator;
 
-import java.util.stream.Stream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 class StringCalculator {
 
 	static int sum(String input) {
-		if (input.isEmpty()) {
-			return 0;
-		}
-		return new StringCalculatorSum(input).calculate();
+		return new Sum().calculate(input);
 	}
 
-	private static class StringCalculatorSum {
+	private static final class Sum {
 
-		private final String input;
-		private String delimiters;
+		private Pattern pattern;
 
-		StringCalculatorSum(String input) {
-			this.input = input;
-			this.delimiters = ",\\n";
+		private Sum() {
+			this.pattern = Pattern.compile("[,\\n]");
 		}
 
-		int calculate() {
-			return Stream.of(splitted(preprocessedInput()))
-					.mapToInt(this::toInt)
-					.sum();
-		}
-
-		private String[] splitted(String s) {
-			return s.split("[" + delimiters + "]");
-		}
-
-		private String preprocessedInput() {
-			if (input.startsWith("//")) {
-				delimiters += input.charAt(2);
-				return input.substring(4);
-			}
-			return input;
-		}
-
-		private int toInt(String s) {
-			int n = Integer.parseInt(s);
-			if (n < 0) {
-				throw new IllegalArgumentException();
-			}
-			if (n > 1000) {
+		private int calculate(String input) {
+			if (input.isEmpty()) {
 				return 0;
 			}
-			return n;
+			String[] partition = partition(input);
+			return process(partition[0]) + calculate(partition[1]);
 		}
 
-	}
+		private String[] partition(String input) {
+			Matcher matcher = pattern.matcher(input);
+			if (matcher.find()) {
+				return new String[] {
+						input.substring(0, matcher.start()),
+						input.substring(matcher.start() + 1)
+				};
+			}
+			else {
+				return new String[] { input, "" };
+			}
+		}
 
+		private int process(String part) {
+			if (part.startsWith("//")) {
+				return parseCustomDelimiter(part);
+			}
+			else {
+				return parseNumber(part);
+			}
+		}
+
+		private int parseCustomDelimiter(String part) {
+			pattern = Pattern.compile("[" + part.charAt(2) + "\\n]");
+			return 0;
+		}
+
+		private int parseNumber(String part) {
+			int number = Integer.parseInt(part);
+			if (number < 0) {
+				throw new IllegalArgumentException();
+			}
+			if (number > 1000) {
+				return 0;
+			}
+			return number;
+		}
+	}
 }
