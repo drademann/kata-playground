@@ -4,53 +4,52 @@ import java.util.stream.Stream;
 
 class StringCalculator {
 
-	private final String input;
-
-	private String separators = ",\n";
-
-	StringCalculator(String input) {
-		this.input = input;
-	}
-
-	int sum() {
-		if (hasInput()) {
-			return Stream.of(splittedInput()).mapToInt(Integer::parseInt).sum();
-		}
-		else {
+	static int sum(String input) {
+		if (input.isEmpty()) {
 			return 0;
 		}
+		return new StringCalculatorSum(input).calculate();
 	}
 
-	private boolean hasInput() {
-		return !input.isEmpty();
-	}
+	private static class StringCalculatorSum {
 
-	private String[] splittedInput() {
-		return parsedInput().split(bySeparators());
-	}
+		private final String input;
+		private String delimiters;
 
-	private String parsedInput() {
-		if (inputContainsCustomDelimiter()) {
-			extractCustomerDelimiter();
-			return plainNumberString();
+		StringCalculatorSum(String input) {
+			this.input = input;
+			this.delimiters = ",\\n";
 		}
-		return input;
-	}
 
-	private String bySeparators() {
-		return "[" + separators + "]";
-	}
+		int calculate() {
+			return Stream.of(splitted(preprocessedInput()))
+					.mapToInt(this::toInt)
+					.sum();
+		}
 
-	private boolean inputContainsCustomDelimiter() {
-		return input.startsWith("//");
-	}
+		private String[] splitted(String s) {
+			return s.split("[" + delimiters + "]");
+		}
 
-	private void extractCustomerDelimiter() {
-		separators += input.charAt(2);
-	}
+		private String preprocessedInput() {
+			if (input.startsWith("//")) {
+				delimiters += input.charAt(2);
+				return input.substring(4);
+			}
+			return input;
+		}
 
-	private String plainNumberString() {
-		return input.substring(4);
+		private int toInt(String s) {
+			int n = Integer.parseInt(s);
+			if (n < 0) {
+				throw new IllegalArgumentException();
+			}
+			if (n > 1000) {
+				return 0;
+			}
+			return n;
+		}
+
 	}
 
 }

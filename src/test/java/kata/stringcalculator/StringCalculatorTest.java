@@ -31,6 +31,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <li>Providing numbers bigger than 1000 when calculating
  * then such numbers should be ignored in the calculation.</li>
  *
+ * ** Use the following advanced requirements if you finish the previous steps
+ *    in less than 30 minutes.
+ *
  * <li>Providing delimiters of any length ("//[delimiter]\n") when calculating
  * then the result is the sum of the numbers. (e.g. "//[xx]\n1xx2xx3" should return 6)</li>
  *
@@ -43,34 +46,44 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class StringCalculatorTest {
 
+	private int sumOf(String input) {
+		return StringCalculator.sum(input);
+	}
+
 	@Test
 	public void givenEmptyString_shouldReturnZero() {
-		assertThat(new StringCalculator("").sum()).isEqualTo(0);
+		assertThat(sumOf("")).isEqualTo(0);
 	}
 
 	@Test
-	public void givenSingleNumberInString_shouldReturnNumberAsInteger() {
-		assertThat(new StringCalculator("1").sum()).isEqualTo(1);
+	public void givenSingleNumberString_shouldReturnNumber() {
+		assertThat(sumOf("1")).isEqualTo(1);
+		assertThat(sumOf("2")).isEqualTo(2);
 	}
 
 	@Test
-	public void givenTwoCommaSeparatedNumbersInString_shouldReturnSumOfNumbers() {
-		assertThat(new StringCalculator("1,2").sum()).isEqualTo(3);
+	public void givenCommaSeparatedNumbers_shouldReturnSumOfNumbers() {
+		assertThat(sumOf("1,2")).isEqualTo(3);
+		assertThat(sumOf("1,2,3")).isEqualTo(6);
 	}
 
 	@Test
-	public void givenThreeCommaSeparatedNUmbersInString_shouldReturnSumOfNumbers() {
-		assertThat(new StringCalculator("1,2,3").sum()).isEqualTo(6);
+	public void givenLineBreakInString_shouldReturnSumOfNumbers() {
+		assertThat(sumOf("1\n2,3")).isEqualTo(6);
 	}
 
 	@Test
-	public void givenInputContainsLineBreaksInsteadComma_shouldStillReturnSum() {
-		assertThat(new StringCalculator("1\n2,3").sum()).isEqualTo(6);
+	public void givenCustomDelimiter_shouldUseDelimiterToReturnSumOfNumbers() {
+		assertThat(sumOf("//;\n1;2;3")).isEqualTo(6);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void givenNegativeNumbers_shouldThrowIllegalArgumentException() {
+		sumOf("-1");
 	}
 
 	@Test
-	public void givenCustomDelimiter_shouldReturnSum() {
-		assertThat(new StringCalculator("//;\n1;2").sum()).isEqualTo(3);
+	public void givenNumberGreaterThan1000_shouldIgnoreThoseNumber() {
+		assertThat(sumOf("1,20,300,4000")).isEqualTo(321);
 	}
-
 }
