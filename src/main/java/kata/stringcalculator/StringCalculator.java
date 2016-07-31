@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 class StringCalculator {
 
 	static int sum(String input) {
-		return new Sum().calculate(input);
+		return new Sum().calculate(0, input);
 	}
 
 	private static final class Sum {
@@ -17,12 +17,12 @@ class StringCalculator {
 			this.pattern = Pattern.compile("[,\\n]");
 		}
 
-		private int calculate(String input) {
+		private int calculate(int sum, String input) {
 			if (input.isEmpty()) {
-				return 0;
+				return sum;
 			}
 			String[] partition = partition(input);
-			return process(partition[0]) + calculate(partition[1]);
+			return calculate(sum + process(partition[0]), partition[1]);
 		}
 
 		private String[] partition(String input) {
