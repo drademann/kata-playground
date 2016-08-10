@@ -3,64 +3,76 @@ package kata.stringcalculator;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.util.regex.Pattern.compile;
+
 class StringCalculator {
 
-	static int sum(String input) {
-		return new Sum().calculate(0, input);
+	static int sumOf(String input) {
+		if (input.isEmpty()) {
+			return 0;
+		}
+		return new Sum().conquer(0, input);
 	}
 
-	private static final class Sum {
+	private static class Sum {
 
 		private Pattern pattern;
 
-		private Sum() {
-			this.pattern = Pattern.compile("[,\\n]");
+		Sum() {
+			this.pattern = compile("[,\\n]");
 		}
 
-		private int calculate(int sum, String input) {
+		private static class Snake {
+
+			String head;
+			String tail;
+
+			private Snake(String head, String tail) {
+				this.head = head;
+				this.tail = tail;
+			}
+		}
+
+		int conquer(int sum, String input) {
 			if (input.isEmpty()) {
 				return sum;
 			}
-			String[] partition = partition(input);
-			return calculate(sum + process(partition[0]), partition[1]);
+			Snake snake = divide(input);
+			return conquer(sum + parsed(snake.head), snake.tail);
 		}
 
-		private String[] partition(String input) {
-			Matcher matcher = pattern.matcher(input);
+		private Snake divide(String s) {
+			Matcher matcher = pattern.matcher(s);
+			String head, tail;
 			if (matcher.find()) {
-				return new String[] {
-						input.substring(0, matcher.start()),
-						input.substring(matcher.start() + 1)
-				};
+				head = s.substring(0, matcher.start());
+				tail = s.substring(matcher.start() + 1);
 			}
 			else {
-				return new String[] { input, "" };
+				head = s;
+				tail = "";
 			}
+			return new Snake(head, tail);
 		}
 
-		private int process(String part) {
-			if (part.startsWith("//")) {
-				return parseCustomDelimiter(part);
-			}
-			else {
-				return parseNumber(part);
-			}
-		}
-
-		private int parseCustomDelimiter(String part) {
-			pattern = Pattern.compile("[" + part.charAt(2) + "\\n]");
-			return 0;
-		}
-
-		private int parseNumber(String part) {
-			int number = Integer.parseInt(part);
-			if (number < 0) {
-				throw new IllegalArgumentException();
-			}
-			if (number > 1000) {
+		private int parsed(String s) {
+			if (s.startsWith("//")) {
+				pattern = compile("[" + s.charAt(2) + "\\n]");
 				return 0;
 			}
-			return number;
+			return parsedToInteger(s);
+		}
+
+		private int parsedToInteger(String s) {
+			int n = Integer.parseInt(s);
+			if (n < 0) {
+				throw new IllegalArgumentException();
+			}
+			if (n > 1000) {
+				return 0;
+			}
+			return n;
 		}
 	}
+
 }
