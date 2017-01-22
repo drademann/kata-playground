@@ -39,7 +39,7 @@ public class RomanNumberConverterTest {
 
 	@Test
 	public void givenThree_shouldReturn_III() {
-		assertThat(romanNumberOf(2)).isEqualTo("II");
+		assertThat(romanNumberOf(3)).isEqualTo("III");
 	}
 
 	@Test

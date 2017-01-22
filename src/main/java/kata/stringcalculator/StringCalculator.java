@@ -24,8 +24,8 @@ class StringCalculator {
 
 		private static class Snake {
 
-			String head;
-			String tail;
+			final String head;
+			final String tail;
 
 			private Snake(String head, String tail) {
 				this.head = head;
