@@ -8,7 +8,7 @@ Currently the following Katas are included:
 * Prime Factors (thanks to _Uncle Bob_ [Robert C. Martin's Prime Factor Kata] (http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata))
 * Roman Number Converter
 * String Calculator (thanks to [Roy Osherove](http://osherove.com/tdd-kata-1/))
-* Word Chains (thanks to [Dave Thomas] (http://codekata.com/kata/kata19-word-chains/))
+* Word Chains (thanks to [Dave Thomas](http://codekata.com/kata/kata19-word-chains/))
 
 A description with requirements for each Kata is included in each test class (see its JavaDoc).
 
