@@ -5,7 +5,7 @@ Currently the following Katas are included:
 
 * Bowling Game (thanks to _Uncle Bob_ [Robert C. Martin's Bowling Game Kata](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata))
 * Conway's Game of Life (thanks to Mr. Conway)
-* Prime Factors (thanks to _Uncle Bob_ [Robert C. Martin's Prime Factor Kata] (http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata))
+* Prime Factors (thanks to _Uncle Bob_ [Robert C. Martin's Prime Factor Kata](http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata))
 * Roman Number Converter
 * String Calculator (thanks to [Roy Osherove](http://osherove.com/tdd-kata-1/))
 * Word Chains (thanks to [Dave Thomas](http://codekata.com/kata/kata19-word-chains/))
