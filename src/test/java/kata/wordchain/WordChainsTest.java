@@ -1,8 +1,5 @@
 package kata.wordchain;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,6 +8,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
@@ -21,23 +21,23 @@ import static org.assertj.core.api.Assertions.fail;
 
 /**
  * <strong>Requirements</strong>
- *
+ * <p>
  * <p>This feature tries to find a way to get from one word to another by changing only one letter per step.
  * The length of the word doesn't change and the word must be a valid and known english word and not some
  * fantasy creation.</p>
- *
+ * <p>
  * <p>In example you can get from cat to dog this way:</p>
- *
+ * <p>
  * <p>cat - cot - cog - dog</p>
- *
+ * <p>
  * <p><i>ps.</i> find a long list of words in {@code src/test/java/resources}</p>
  */
-public class WordChainsTest {
+class WordChainsTest {
 
 	private WordChainer wordChainer;
 
-	@Before
-	public void setUp() throws Exception {
+	@BeforeEach
+	void setUp() throws Exception {
 		wordChainer = new WordChainer(asList(
 				"a", "b",
 				"aa", "ab", "ac", "bb",
@@ -46,17 +46,17 @@ public class WordChainsTest {
 	}
 
 	@Test
-	public void givenEmptyString_returnsListWithEmptyString() {
+	void givenEmptyString_returnsListWithEmptyString() {
 		assertThat(wordChainer.find("", "")).isEmpty();
 	}
 
 	@Test
-	public void givenFromToWithDifferentLength_returnsEmptyOptional() {
+	void givenFromToWithDifferentLength_returnsEmptyOptional() {
 		assertThat(wordChainer.find("a", "bb")).isEmpty();
 	}
 
 	@Test
-	public void givenOneCharDifference_returnListWithFromTo() {
+	void givenOneCharDifference_returnListWithFromTo() {
 		Optional<WordChain> wordChain = wordChainer.find("aa", "ab");
 		if (wordChain.isPresent()) {
 			assertThat(wordChain.get().path()).containsExactly("aa", "ab");
@@ -67,7 +67,7 @@ public class WordChainsTest {
 	}
 
 	@Test
-	public void givenTwoWords_whenCountingCharMatches_shouldReturnNumberOfCharsEqualAtSamePosition() {
+	void givenTwoWords_whenCountingCharMatches_shouldReturnNumberOfCharsEqualAtSamePosition() {
 		assertThat(wordChainer.matchCount("a", "a")).isEqualTo(1);
 		assertThat(wordChainer.matchCount("aa", "aa")).isEqualTo(2);
 		assertThat(wordChainer.matchCount("aab", "aac")).isEqualTo(2);
@@ -75,13 +75,13 @@ public class WordChainsTest {
 	}
 
 	@Test
-	public void givenOneWord_whenSearchingNextAvailables_shouldReturnWordsWithOnlyOneDifferentChar() {
+	void givenOneWord_whenSearchingNextAvailables_shouldReturnWordsWithOnlyOneDifferentChar() {
 		assertThat(findNextWordsFor("a")).containsExactly("b");
 		assertThat(findNextWordsFor("aa")).containsExactly("ab", "ac");
 	}
 
 	@Test
-	public void givenListOfWords_whenSearchingNextAvailables_shouldNotReturnDuplicates() {
+	void givenListOfWords_whenSearchingNextAvailables_shouldNotReturnDuplicates() {
 		assertThat(findNextWordsFor("ac", "aa")).containsExactly("ab");
 	}
 
@@ -92,7 +92,7 @@ public class WordChainsTest {
 	}
 
 	@Test
-	public void givenWordList_whenFindPath_shouldReturnKnownPath() {
+	void givenWordList_whenFindPath_shouldReturnKnownPath() {
 		Optional<WordChain> wordChain = wordChainer.find("aaa", "bab");
 		if (wordChain.isPresent()) {
 			assertThat(wordChain.get().path()).containsExactly("aaa", "baa", "bab");
@@ -103,12 +103,12 @@ public class WordChainsTest {
 	}
 
 	@Test
-	public void givenWordList_withTryingFindUnknownTargetWord_shouldReturnEmptyOptional() {
+	void givenWordList_withTryingFindUnknownTargetWord_shouldReturnEmptyOptional() {
 		assertThat(wordChainer.find("aaa", "xxx")).isEmpty();
 	}
 
 	@Test
-	public void givenAllEnglishWords_findExamples() {
+	void givenAllEnglishWords_findExamples() {
 		wordChainer = new WordChainer(loadWords());
 
 		Optional<WordChain> wordChain = wordChainer.find("cat", "dog");
@@ -130,10 +130,11 @@ public class WordChainsTest {
 	 */
 	private List<String> loadWords() {
 		try (BufferedReader wordResourceStream =
-						 new BufferedReader(
-								 new InputStreamReader(getClass().getResourceAsStream("/words")))) {
+					 new BufferedReader(
+							 new InputStreamReader(getClass().getResourceAsStream("/words")))) {
 			return extractedWordsFrom(wordResourceStream);
-		} catch (IOException e) {
+		}
+		catch (IOException e) {
 			log.log(Level.SEVERE, "unable to load words", e);
 			return emptyList();
 		}
