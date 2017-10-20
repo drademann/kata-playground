@@ -1,6 +1,6 @@
 package kata.gameoflife;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,10 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * <li>Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.</li>
  * </ol>
  */
-public class GameOfLifeTest {
+class GameOfLifeTest {
 
 	@Test
-	public void test() {
+	void test() {
 		// start your tests
 		assertThat(true).isTrue();
 	}
