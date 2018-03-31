@@ -13,5 +13,4 @@ class PrimeFactors {
                 primes.add(candidate);
         return primes;
     }
-
 }

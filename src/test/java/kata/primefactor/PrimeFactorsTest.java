@@ -23,5 +23,4 @@ class PrimeFactorsTest {
         assertThat(PrimeFactors.of(8)).containsExactly(2, 2, 2);
         assertThat(PrimeFactors.of(9)).containsExactly(3, 3);
     }
-
 }

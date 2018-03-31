@@ -15,9 +15,9 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 class GameOfLifeTest {
 
-	@Test
-	void test() {
-		// start your tests
-		assertThat(true).isTrue();
-	}
+    @Test
+    void test() {
+        // start your tests
+        assertThat(true).isTrue();
+    }
 }

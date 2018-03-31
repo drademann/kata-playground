@@ -8,32 +8,32 @@ import static java.util.Collections.unmodifiableList;
 
 class WordChain {
 
-	private final List<String> path;
+    private final List<String> path;
 
-	WordChain(String start) {
-		this.path = asList(start);
-	}
+    WordChain(String start) {
+        path = asList(start);
+    }
 
-	WordChain(List<String> path) {
-		this.path = unmodifiableList(path);
-	}
+    WordChain(List<String> path) {
+        this.path = unmodifiableList(path);
+    }
 
-	List<String> path() {
-		return path;
-	}
+    List<String> path() {
+        return path;
+    }
 
-	WordChain append(String word) {
-		List<String> newPath = new ArrayList<>(path);
-		newPath.add(word);
-		return new WordChain(newPath);
-	}
+    WordChain append(String word) {
+        List<String> newPath = new ArrayList<>(path);
+        newPath.add(word);
+        return new WordChain(newPath);
+    }
 
-	boolean contains(String word) {
-		return path.contains(word);
-	}
+    boolean contains(String word) {
+        return path.contains(word);
+    }
 
-	String lastWord() {
-		return path.get(path.size() - 1);
-	}
+    String lastWord() {
+        return path.get(path.size() - 1);
+    }
 
 }
