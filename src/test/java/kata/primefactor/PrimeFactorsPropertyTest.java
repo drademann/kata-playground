@@ -18,7 +18,7 @@ class PrimeFactorsPropertyTest {
             assertThat(factors).isEmpty();
         }
         else {
-            int product = factors.stream().reduce((accu, factor) -> accu * factor).orElseThrow();
+            int product = factors.stream().reduce((accu, factor) -> accu * factor).orElseThrow(AssertionError::new);
             assertThat(product).isEqualTo(number);
         }
     }

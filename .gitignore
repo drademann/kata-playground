@@ -1,6 +1,12 @@
+# IDEA
 /.idea/
 **/*.iml
 
+# build artifacs
 target
 
+# test artifacts
+/.jqwik-database
+
+# macOS
 .DS_Store
