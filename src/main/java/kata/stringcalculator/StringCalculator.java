@@ -14,26 +14,26 @@ class StringCalculator {
         return new Sum().conquer(0, input);
     }
 
-    private static class Sum {
+    private static final class Sum {
 
         private Pattern pattern;
 
-        Sum() {
+        private Sum() {
             pattern = compile("[,\\n]");
         }
 
-        private static class Snake {
+        private static final class Snake {
 
-            final String head;
-            final String tail;
+            private final String head;
+            private final String tail;
 
-            Snake(String head, String tail) {
+            private Snake(String head, String tail) {
                 this.head = head;
                 this.tail = tail;
             }
         }
 
-        int conquer(int sum, String input) {
+        private int conquer(int sum, String input) {
             if (input.isEmpty()) {
                 return sum;
             }
@@ -47,8 +47,7 @@ class StringCalculator {
             if (matcher.find()) {
                 head = s.substring(0, matcher.start());
                 tail = s.substring(matcher.start() + 1);
-            }
-            else {
+            } else {
                 head = s;
                 tail = "";
             }

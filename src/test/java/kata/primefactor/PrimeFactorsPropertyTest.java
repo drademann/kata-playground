@@ -8,16 +8,16 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PrimeFactorsPropertyTest {
+@SuppressWarnings("WeakerAccess")
+public class PrimeFactorsPropertyTest {
 
     @Property
-    void multiplyFactors_shouldReturnInputNumber(@ForAll @IntRange(min = 1, max = 65536) int number) {
+    public void multiplyFactors_shouldReturnInputNumber(@ForAll @IntRange(min = 1, max = 65536) int number) {
         List<Integer> factors = PrimeFactors.of(number);
 
         if (number == 1) {
             assertThat(factors).isEmpty();
-        }
-        else {
+        } else {
             int product = factors.stream().reduce((accu, factor) -> accu * factor).orElseThrow(AssertionError::new);
             assertThat(product).isEqualTo(number);
         }

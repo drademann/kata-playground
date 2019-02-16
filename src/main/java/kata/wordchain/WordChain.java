@@ -19,7 +19,7 @@ class WordChain {
     }
 
     List<String> path() {
-        return path;
+        return unmodifiableList(path);
     }
 
     WordChain append(String word) {

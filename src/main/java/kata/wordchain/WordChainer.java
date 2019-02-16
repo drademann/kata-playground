@@ -39,7 +39,7 @@ class WordChainer {
                 : findChain(chains, to);
     }
 
-    private List<WordChain> findNextChainsFor(List<WordChain> chains) { // visible for testing
+    private List<WordChain> findNextChainsFor(Collection<? extends WordChain> chains) { // visible for testing
         return chains.stream()
                      .flatMap(this::findNextChainsFor)
                      .collect(toList());
@@ -54,7 +54,7 @@ class WordChainer {
                          .map(chain::append);
     }
 
-    private Optional<WordChain> matches(List<WordChain> chains, String to) {
+    private Optional<WordChain> matches(Collection<WordChain> chains, String to) {
         return chains.stream().filter(candidate -> candidate.lastWord().equals(to)).findFirst();
     }
 
@@ -62,12 +62,12 @@ class WordChainer {
         return !chain.contains(candidate);
     }
 
-    private boolean byCorrespondingCharsIn(String word1, String word2) {
+    private boolean byCorrespondingCharsIn(CharSequence word1, CharSequence word2) {
         return matchCount(word1, word2) == (word1.length() - 1);
     }
 
     // visible for testing
-    int matchCount(String word1, String word2) {
+    int matchCount(CharSequence word1, CharSequence word2) {
         return range(0, word1.length()).map(i -> (word1.charAt(i) == word2.charAt(i)) ? 1 : 0).sum();
     }
 }

@@ -1,6 +1,6 @@
 package kata.bowling;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static java.util.Arrays.stream;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -30,16 +30,16 @@ import static org.assertj.core.api.Assertions.assertThat;
  * {@code score() : int}
  * is called only at the very end of the game.  It returns the total score for that game.
  */
-class BowlingGameTest {
+public class BowlingGameTest {
 
     private BowlingGame gameWith(int... rolls) {
-        BowlingGame game = new BowlingGame();
+        var game = new BowlingGame();
         stream(rolls).forEach(game::roll);
         return game;
     }
 
     @Test
-    void givenNewRoll_shouldAddNewPins() {
+    public void givenNewRoll_shouldAddNewPins() {
         assertThat(gameWith(1).rollAt(0)).isEqualTo(1);
     }
 }

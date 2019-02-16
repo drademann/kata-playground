@@ -1,10 +1,10 @@
 package kata.stringcalculator;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import static kata.stringcalculator.StringCalculator.sumOf;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 /**
  * <strong>Requirements</strong>
@@ -32,10 +32,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  *
  * <li>Providing numbers bigger than 1000 when calculating
  * then such numbers should be ignored in the calculation.</li>
+ * </ol>
  * <p>
- * <b>Use the following advanced requirements if you finish the previous steps
- * in less than 30 minutes.</b>
+ * Use the following advanced requirements if you finish the previous steps
+ * in less than 30 minutes.
  *
+ * <ol>
  * <li>Providing delimiters of any length ("//[delimiter]\n") when calculating
  * then the result is the sum of the numbers. (e.g. "//[xx]\n1xx2xx3" should return 6)</li>
  *
@@ -46,46 +48,46 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * then the result is the sum of the numbers.</li>
  * </ol>
  */
-class StringCalculatorTest {
+public class StringCalculatorTest {
 
     @Test
-    void givenEmptyString_shouldReturnZero() {
+    public void givenEmptyString_shouldReturnZero() {
         assertThat(sumOf("")).isEqualTo(0);
     }
 
     @Test
-    void givenOneNumberInString_shouldReturnNumberAsSum() {
+    public void givenOneNumberInString_shouldReturnNumberAsSum() {
         assertThat(sumOf("1")).isEqualTo(1);
         assertThat(sumOf("42")).isEqualTo(42);
     }
 
     @Test
-    void givenTwoNumbers_shouldReturnSumOfNumbers() {
+    public void givenTwoNumbers_shouldReturnSumOfNumbers() {
         assertThat(sumOf("1,2")).isEqualTo(3);
     }
 
     @Test
-    void givenMultipleNumbers_shouldReturnSumOfNumbers() {
+    public void givenMultipleNumbers_shouldReturnSumOfNumbers() {
         assertThat(sumOf("1,2,3,200")).isEqualTo(206);
     }
 
     @Test
-    void givenStringContainsLineBreaks_shouldTreatThemAsDelmiter() {
+    public void givenStringContainsLineBreaks_shouldTreatThemAsDelmiter() {
         assertThat(sumOf("1\n2,3")).isEqualTo(6);
     }
 
     @Test
-    void givenCustomDelimiter_shouldUseNewDelmiterInstead() {
+    public void givenCustomDelimiter_shouldUseNewDelmiterInstead() {
         assertThat(sumOf("//;\n1;2;3")).isEqualTo(6);
     }
 
     @Test
-    void givenNegativeNumber_shouldRaiseException() {
-        assertThrows(IllegalArgumentException.class, () -> sumOf("-1"));
+    public void givenNegativeNumber_shouldRaiseException() {
+        assertThatThrownBy(() -> sumOf("-1")).isExactlyInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    void givenNumbersGreaterThan1000_shouldIgnoreThoseNumbers() {
+    public void givenNumbersGreaterThan1000_shouldIgnoreThoseNumbers() {
         assertThat(sumOf("1,1001,2,50000,3,1000")).isEqualTo(1006);
     }
 }

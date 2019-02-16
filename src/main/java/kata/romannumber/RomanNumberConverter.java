@@ -38,22 +38,21 @@ class RomanNumberConverter {
         return roman.toString();
     }
 
-    private static class RomanDigit {
+    private static final class RomanDigit {
         private final int decimalValue;
         private final String romanDigit;
 
-        RomanDigit(int decimalValue, String romanDigit) {
+        private RomanDigit(int decimalValue, String romanDigit) {
             this.decimalValue = decimalValue;
             this.romanDigit = romanDigit;
         }
 
-        int decimalValue() {
+        private int decimalValue() {
             return decimalValue;
         }
 
-        String romanDigit() {
+        private String romanDigit() {
             return romanDigit;
         }
     }
-
 }

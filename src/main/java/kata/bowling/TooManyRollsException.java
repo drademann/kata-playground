@@ -1,5 +1,3 @@
 package kata.bowling;
 
-class TooManyRollsException extends RuntimeException {
-
-}
+class TooManyRollsException extends RuntimeException {}
