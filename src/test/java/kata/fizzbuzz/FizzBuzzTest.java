@@ -5,6 +5,16 @@ import org.junit.Test;
 import static kata.fizzbuzz.FizzBuzz.map;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * <strong>Requirements</strong>
+ * <p>
+ * Given a list of numbers it
+ * <ul>
+ * <li>should return "Fizz" if a number is divisible by 3</li>
+ * <li>should return "Buzz" if a number is divisible by 5</li>
+ * <li>the number in all other cases.</li>
+ * </ul>
+ */
 public class FizzBuzzTest {
 
     @Test
