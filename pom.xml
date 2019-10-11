@@ -9,13 +9,13 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <jdk.version>11</jdk.version>
-        <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-        <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
-        <pitest.version>1.4.5</pitest.version>
+        <jdk.version>13</jdk.version>
+        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>2.22.2</maven.surefire.plugin.version>
+        <pitest.version>1.4.10</pitest.version>
         <junit.version>4.12</junit.version>
-        <assertj.version>3.12.0</assertj.version>
-        <jqwik.version>1.1.0</jqwik.version>
+        <assertj.version>3.13.2</assertj.version>
+        <jqwik.version>1.2.0</jqwik.version>
     </properties>
 
     <dependencies>
