@@ -1,9 +1,10 @@
 # kata-playground
-This is a project setup to quickly get started with various Coding Katas using JUnit and Java 8.
+This is a project setup to quickly get started with various Coding Katas using JUnit and Java.
 
-Currently the following Katas are included:
+So far the playground contains the following Katas:
 
 * Bowling Game (thanks to _Uncle Bob_ [Robert C. Martin's Bowling Game Kata](http://butunclebob.com/ArticleS.UncleBob.TheBowlingGameKata))
+* Christmas Tree
 * Conway's Game of Life (thanks to Mr. Conway)
 * FizzBuzz
 * Prime Factors (thanks to _Uncle Bob_ [Robert C. Martin's Prime Factor Kata](http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata))
@@ -11,7 +12,7 @@ Currently the following Katas are included:
 * String Calculator (thanks to [Roy Osherove](http://osherove.com/tdd-kata-1/))
 * Word Chains (thanks to [Dave Thomas](http://codekata.com/kata/kata19-word-chains/))
 
-A description with requirements for each Kata is included in each test class (see its JavaDoc).
+Each Kata includes a description with requirements in the test class (see its JavaDoc).
 
 Remember the TDD and Kata rules:
 - Do one task at a time. 
