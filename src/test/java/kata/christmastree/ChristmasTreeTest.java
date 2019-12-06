@@ -4,46 +4,109 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/*
+ * <strong>Requirements</strong>
+ * <p>
+ * Write a method that returns an ASCII chrismas tree. The tree can be of different heights.
+ *
+ * Given zero height should return just the tree stop "|".
+ *
+ * Given a height of 1 should return the stomp with just one leaf:
+ *
+ *      #
+ *      |
+ *
+ * Given a height of n should return a tree of height n (eg., 3):
+ *
+ *      #
+ *     ###
+ *    #####
+ *      |
+ *
+ * Given a star should draw a star!
+ *
+ *      +
+ *      #
+ *     ###
+ *    #####
+ *      |
+ *
+ * Given christmas tree balls should place them randomly on the tree.
+ *   - a tree of height <=1 should not have balls
+ *   - no more than 25% of the leaves may be balls
+ *
+ *      +
+ *      #
+ *     o##
+ *    ###o#
+ *      |
+ */
 public class ChristmasTreeTest {
 
-    private String growTreeOfHeight(int height) {
-        return ChristmasTree.ofHeight(height);
+    @Test
+    public void givenZeroHeight_shouldJustReturnTheTreeStomp() {
+        var tree = new ChristmasTree()
+                .withLayers(0)
+                .grow();
+
+        assertThat(tree).isEqualTo("""
+                |
+                """);
     }
 
     @Test
-    public void givenZeroHeight_shouldDrawTreeStomp() {
-        assertThat(growTreeOfHeight(0)).isEqualTo("""
-        |
-        """);
+    public void givenHeight_1_shouldReturnTreeWithOneLeaf() {
+        var tree = new ChristmasTree()
+                .withLayers(1)
+                .grow();
+
+        assertThat(tree).isEqualTo("""
+                #
+                |
+                """);
     }
 
     @Test
-    public void givenHeightOfOne_shouldDrawMinimalTree() {
-        assertThat(growTreeOfHeight(1)).isEqualTo("""
-        X
-        |
-        """);
+    public void givenHeight_2_shouldReturnSmallTree() {
+        var tree = new ChristmasTree()
+                .withLayers(2)
+                .grow();
+
+        assertThat(tree).isEqualTo("""
+                 #
+                ###
+                 |
+                """);
     }
 
     @Test
-    public void givenHeightOfTwo_shouldDrawLittleTree() {
-        assertThat(growTreeOfHeight(2)).isEqualTo("""
-         X
-        XXX
-         |
-        """);
+    public void givenHeight_3_shouldReturnLittleGrownTree() {
+        var tree = new ChristmasTree()
+                .withLayers(3)
+                .grow();
+
+        assertThat(tree).isEqualTo("""
+                  #
+                 ###
+                #####
+                  |
+                """);
     }
 
     @Test
-    public void givenHeightOf5_shouldDrawLittleTree() {
-        assertThat(growTreeOfHeight(5)).isEqualTo("""
-            X
-           XXX
-          XXXXX
-         XXXXXXX
-        XXXXXXXXX
-            |
-        """);
+    public void givenStar_shouldDrawStar() {
+        var tree = new ChristmasTree()
+                .withLayers(3)
+                .withTopping('+')
+                .grow();
+
+        assertThat(tree).isEqualTo("""
+                  +
+                  #
+                 ###
+                #####
+                  |
+                """);
     }
 
 }
