@@ -10,6 +10,7 @@ So far the playground contains the following Katas:
 * Prime Factors (thanks to _Uncle Bob_ [Robert C. Martin's Prime Factor Kata](http://butunclebob.com/ArticleS.UncleBob.ThePrimeFactorsKata))
 * Roman Number Converter
 * String Calculator (thanks to [Roy Osherove](http://osherove.com/tdd-kata-1/))
+* Tennis
 * Word Chains (thanks to [Dave Thomas](http://codekata.com/kata/kata19-word-chains/))
 
 Each Kata includes a description with requirements in the test class (see its JavaDoc).
