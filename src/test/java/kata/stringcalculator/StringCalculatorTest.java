@@ -6,47 +6,45 @@ import static kata.stringcalculator.StringCalculator.sumOf;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-/**
- * <strong>Requirements</strong>
- * <ol>
- * <li>Providing an empty string when calculating
- * then the result is 0.</li>
+/*
+ * Requirements
  *
- * <li>Providing a single number when calculating
- * then the result is the number as integer.</li>
+ * Providing an empty string when calculating
+ * then the result is 0.
  *
- * <li>Providing two comma separated numbers when calculating
- * then the result is the sum of the numbers.</li>
+ * Providing a single number when calculating
+ * then the result is the number as integer.
  *
- * <li>Providing an unknown amount of comma separated numbers when calculating
- * then the result is the sum of all numbers.</li>
+ * Providing two comma separated numbers when calculating
+ * then the result is the sum of the numbers.
  *
- * <li>Providing an input string contains a line break instead of comma as delimiter when calculating
- * then the result is the sum of all numbers.</li>
+ * Providing an unknown amount of comma separated numbers when calculating
+ * then the result is the sum of all numbers.
  *
- * <li>Providing a delimiter is optionally defined on the first line like //; when calculating
- * then the result is the sum of all numbers. (e.g. //;\n1;2 should return 3)</li>
+ * Providing an input string contains a line break instead of comma as delimiter when calculating
+ * then the result is the sum of all numbers.
  *
- * <li>Providing a negative number when calculating
- * then throws an exception "negatives not allowed" - and the negative(s) that was passed.</li>
+ * Providing a delimiter is defined on the first line like //; when calculating
+ * then the result is the sum of all numbers. (e.g. //;\n1;2 should return 3)
  *
- * <li>Providing numbers bigger than 1000 when calculating
- * then such numbers should be ignored in the calculation.</li>
- * </ol>
- * <p>
+ * Providing a negative number when calculating
+ * then throws an exception "negatives not allowed" - and the negative(s) that was passed.
+ *
+ * Providing numbers bigger than 1000 when calculating
+ * then such numbers should be ignored in the calculation.
+ *
+ *
  * Use the following advanced requirements if you finish the previous steps
  * in less than 30 minutes.
  *
- * <ol>
- * <li>Providing delimiters of any length ("//[delimiter]\n") when calculating
- * then the result is the sum of the numbers. (e.g. "//[xx]\n1xx2xx3" should return 6)</li>
+ * Providing delimiters of any length ("//[delimiter]\n") when calculating
+ * then the result is the sum of the numbers. (e.g. "//[xx]\n1xx2xx3" should return 6)
  *
- * <li>Providing multiple delimiters ("//[delim1][delim2]\n") when calculating
- * then the result is the sum of the numbers. (e.g. "//[x][y]\n1x2y3" should return 6)</li>
+ * Providing multiple delimiters ("//[delim1][delim2]\n") when calculating
+ * then the result is the sum of the numbers. (e.g. "//[x][y]\n1x2y3" should return 6)
  *
- * <li>Providing multiple delimiters with variable length when calculating
- * then the result is the sum of the numbers.</li>
- * </ol>
+ * Providing multiple delimiters with variable length when calculating
+ * then the result is the sum of the numbers.
  */
 public class StringCalculatorTest {
 

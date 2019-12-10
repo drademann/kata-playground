@@ -4,11 +4,10 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * <strong>Requirements</strong>
- * <ul>
- * <li>For an integer value n the generator should return all prime factors as an ordered list.</li>
- * </ul>
+/*
+ * Requirements
+ *
+ * For an integer value n the generator should return all prime factors as an ordered list.
  */
 public class PrimeFactorsTest {
 

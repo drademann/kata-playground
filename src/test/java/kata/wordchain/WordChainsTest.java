@@ -19,18 +19,18 @@ import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
 
-/**
- * <strong>Requirements</strong>
+/*
+ * Requirements
  *
- * <p>This feature tries to find a way to get from one word to another by changing only one letter per step.
+ * This feature tries to find a way to get from one word to another by changing only one letter per step.
  * The length of the word doesn't change and the word must be a valid and known english word and not some
- * fantasy creation.</p>
+ * fantas creation.
  *
- * <p>In example you can get from cat to dog this way:</p>
+ * In example you can get from cat to dog this way:
  *
- * <p>cat - cot - cog - dog</p>
+ * cat - cot - cog - dog
  *
- * <p><i>ps.</i> find a long list of words in {@code src/test/java/resources}</p>
+ * ps. find a long list of words in "src/test/java/resources"
  */
 public class WordChainsTest {
 
@@ -86,8 +86,8 @@ public class WordChainsTest {
 
     private List<String> findNextWordsFor(String... words) {
         return wordChainer.findNextChainsFor(new WordChain(asList(words)))
-                          .map(WordChain::lastWord)
-                          .collect(toList());
+                .map(WordChain::lastWord)
+                .collect(toList());
     }
 
     @Test

@@ -4,21 +4,20 @@ import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-/**
- * <strong>Requirements</strong>
- * <ul>
- * <li>For an integer value n the converter should return a string containing the roman number equivalent.</li>
- * </ul>
+/*
+ * Requirements
+ *
+ * For an integer value n the converter should return a string containing the roman number equivalent.
+ *
  * Roman numbers:
- * <ul>
- * <li>I (1),</li>
- * <li>V (5),</li>
- * <li>X (10),</li>
- * <li>L (50),</li>
- * <li>C (100),</li>
- * <li>D (500) and</li>
- * <li>M (1000)</li>
- * </ul>
+ *
+ * I (1)
+ * V (5)
+ * X (10)
+ * L (50)
+ * C (100)
+ * D (500)
+ * M (1000)
  */
 public class RomanNumberConverterTest {
 

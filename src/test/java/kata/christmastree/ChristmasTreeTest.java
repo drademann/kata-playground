@@ -5,8 +5,8 @@ import org.junit.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /*
- * <strong>Requirements</strong>
- * <p>
+ * Requirements
+ *
  * Write a method that returns an ASCII chrismas tree. The tree can be of different heights.
  *
  * Given zero height should return just the tree stop "|".
