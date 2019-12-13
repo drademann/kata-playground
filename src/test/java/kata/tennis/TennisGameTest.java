@@ -9,12 +9,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * Write a game scorer for tennis. The implementation should provide
  * readable output like
- * "Love all."
- * "Fifteen, Love."
- * "Thirty, Forty."
- * "<Player Name> wins."
- * "Deuce."
- * "Advantage, <Player Name>."
+ * “Love all.”
+ * “Fifteen, Love.”
+ * “Thirty, Forty.”
+ * “<Player> wins.”
+ * “Deuce.”
+ * “Advantage, <Player>.”
  */
 public class TennisGameTest {
 
