@@ -7,9 +7,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 /*
  * Requirements
  *
- * Write a method that returns an ASCII chrismas tree. The tree can be of different heights.
+ * Write a method that returns an ASCII christmas tree. The tree can be of different heights.
  *
- * Given zero height should return just the tree stop "|".
+ * Given zero height should return just the tree stomp "|".
  *
  * Given a height of 1 should return the stomp with just one leaf:
  *
@@ -33,7 +33,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * Given christmas tree balls should place them randomly on the tree.
  *   - a tree of height <=1 should not have balls
- *   - no more than 25% of the leaves may be balls
+ *   - no more than 33% of the leaves may be balls
  *
  *      +
  *      #

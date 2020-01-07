@@ -1,13 +1,12 @@
 package kata.christmastree;
 
-import java.util.Arrays;
+import static java.lang.Integer.max;
 
 public class ChristmasTree {
 
     public static final String STOMP = "|\n";
-
     private int layers;
-    private String topping;
+    private Character topping;
 
     public ChristmasTree withLayers(int layers) {
         this.layers = layers;
@@ -15,66 +14,30 @@ public class ChristmasTree {
     }
 
     public ChristmasTree withTopping(char topping) {
-        this.topping = String.valueOf(topping);
+        this.topping = topping;
         return this;
     }
 
     public String grow() {
-        var tree = new StringBuilder();
-        if (hasTopping()) {
-            placeTopping(tree);
+        if (topping != null) {
+            return indentation(0) + topping + "\n" + grow(0);
         }
-        for (int layer = 0; layer < layers; layer++) {
-            growLayer(tree, layer);
-        }
-        return treeWithStomp(tree);
+        return grow(0);
     }
 
-    private boolean hasTopping() {
-        return topping != null;
+    private String grow(int currentLayer) {
+        if (currentLayer == layers) return indentation(0) + STOMP;
+        return indentation(currentLayer)
+                + branch(currentLayer) + "\n"
+                + grow(currentLayer + 1);
     }
 
-    private void growLayer(StringBuilder tree, int layer) {
-        tree
-                .append(spaceAt(layer))
-                .append(branchAt(layer))
-                .append('\n');
+    private String indentation(int currentLayer) {
+        return " ".repeat(max(layers - currentLayer - 1, 0));
     }
 
-    private String treeWithStomp(StringBuilder tree) {
-        return tree
-                .append(spaceAt(0))
-                .append(STOMP)
-                .toString();
-    }
-
-    private void placeTopping(StringBuilder tree) {
-        tree.append(spaceAt(0))
-                .append(topping)
-                .append('\n');
-    }
-
-    private String branchAt(int layer) {
-        return nchars('#', numberOfLeavesAt(layer));
-    }
-
-    private String spaceAt(int layer) {
-        return nchars(' ', numberOfSpacesAt(layer));
-    }
-
-    private int numberOfSpacesAt(int layer) {
-        return layers - layer - 1;
-    }
-
-    private int numberOfLeavesAt(int layer) {
-        return layer * 2 + 1;
-    }
-
-    private String nchars(char ch, int n) {
-        if (n <= 0) return "";
-        var chars = new char[n];
-        Arrays.fill(chars, ch);
-        return new String(chars);
+    private String branch(int currentLayer) {
+        return "#".repeat(currentLayer * 2 + 1);
     }
 
 }
