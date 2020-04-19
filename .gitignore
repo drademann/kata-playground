@@ -4,6 +4,8 @@
 
 # build artifacs
 target
+.gradle
+build
 
 # test artifacts
 /.jqwik-database
