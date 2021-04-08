@@ -1,6 +1,6 @@
 package kata.primefactor;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -9,10 +9,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  *
  * For an integer value n the generator should return all prime factors as an ordered list.
  */
-public class PrimeFactorsTest {
+final class PrimeFactorsTest {
 
     @Test
-    public void generate_shouldReturnPrimeFactors() {
+    void generate_shouldReturnPrimeFactors() {
         assertThat(PrimeFactors.of(1)).isEmpty();
         assertThat(PrimeFactors.of(2)).containsExactly(2);
         assertThat(PrimeFactors.of(3)).containsExactly(3);

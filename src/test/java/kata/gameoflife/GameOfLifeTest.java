@@ -1,6 +1,6 @@
 package kata.gameoflife;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,10 +12,10 @@ import static org.assertj.core.api.Assertions.assertThat;
  * Any live cell with more than three live neighbours dies, as if by overcrowding.
  * Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
  */
-public class GameOfLifeTest {
+final class GameOfLifeTest {
 
     @Test
-    public void test() {
+    void test() {
         // start your tests
         assertThat(true).isTrue();
     }

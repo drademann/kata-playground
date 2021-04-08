@@ -1,6 +1,6 @@
 package kata.stringcalculator;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static kata.stringcalculator.StringCalculator.sumOf;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,46 +46,46 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
  * Providing multiple delimiters with variable length when calculating
  * then the result is the sum of the numbers.
  */
-public class StringCalculatorTest {
+final class StringCalculatorTest {
 
     @Test
-    public void givenEmptyString_shouldReturnZero() {
+    void givenEmptyString_shouldReturnZero() {
         assertThat(sumOf("")).isEqualTo(0);
     }
 
     @Test
-    public void givenOneNumberInString_shouldReturnNumberAsSum() {
+    void givenOneNumberInString_shouldReturnNumberAsSum() {
         assertThat(sumOf("1")).isEqualTo(1);
         assertThat(sumOf("42")).isEqualTo(42);
     }
 
     @Test
-    public void givenTwoNumbers_shouldReturnSumOfNumbers() {
+    void givenTwoNumbers_shouldReturnSumOfNumbers() {
         assertThat(sumOf("1,2")).isEqualTo(3);
     }
 
     @Test
-    public void givenMultipleNumbers_shouldReturnSumOfNumbers() {
+    void givenMultipleNumbers_shouldReturnSumOfNumbers() {
         assertThat(sumOf("1,2,3,200")).isEqualTo(206);
     }
 
     @Test
-    public void givenStringContainsLineBreaks_shouldTreatThemAsDelmiter() {
+    void givenStringContainsLineBreaks_shouldTreatThemAsDelmiter() {
         assertThat(sumOf("1\n2,3")).isEqualTo(6);
     }
 
     @Test
-    public void givenCustomDelimiter_shouldUseNewDelmiterInstead() {
+    void givenCustomDelimiter_shouldUseNewDelmiterInstead() {
         assertThat(sumOf("//;\n1;2;3")).isEqualTo(6);
     }
 
     @Test
-    public void givenNegativeNumber_shouldRaiseException() {
+    void givenNegativeNumber_shouldRaiseException() {
         assertThatThrownBy(() -> sumOf("-1")).isExactlyInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
-    public void givenNumbersGreaterThan1000_shouldIgnoreThoseNumbers() {
+    void givenNumbersGreaterThan1000_shouldIgnoreThoseNumbers() {
         assertThat(sumOf("1,1001,2,50000,3,1000")).isEqualTo(1006);
     }
 }

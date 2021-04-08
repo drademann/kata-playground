@@ -1,6 +1,6 @@
 package kata.romannumber;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -19,60 +19,60 @@ import static org.assertj.core.api.Assertions.assertThat;
  * D (500)
  * M (1000)
  */
-public class RomanNumberConverterTest {
+final class RomanNumberConverterTest {
 
     @Test
-    public void givenZero_shouldReturn_EmptyString() {
+    void givenZero_shouldReturn_EmptyString() {
         assertThat(romanNumberOf(0)).isEqualTo("");
     }
 
     @Test
-    public void givenOne_shouldReturn_I() {
+    void givenOne_shouldReturn_I() {
         assertThat(romanNumberOf(1)).isEqualTo("I");
     }
 
     @Test
-    public void givenTwo_shouldReturn_II() {
+    void givenTwo_shouldReturn_II() {
         assertThat(romanNumberOf(2)).isEqualTo("II");
     }
 
     @Test
-    public void givenThree_shouldReturn_III() {
+    void givenThree_shouldReturn_III() {
         assertThat(romanNumberOf(3)).isEqualTo("III");
     }
 
     @Test
-    public void givenFour_shouldReturn_IV() {
+    void givenFour_shouldReturn_IV() {
         assertThat(romanNumberOf(4)).isEqualTo("IV");
     }
 
     @Test
-    public void givenFive_shouldReturn_V() {
+    void givenFive_shouldReturn_V() {
         assertThat(romanNumberOf(5)).isEqualTo("V");
     }
 
     @Test
-    public void givenSix_shouldReturn_VI() {
+    void givenSix_shouldReturn_VI() {
         assertThat(romanNumberOf(6)).isEqualTo("VI");
     }
 
     @Test
-    public void givenNine_shouldReturn_IX() {
+    void givenNine_shouldReturn_IX() {
         assertThat(romanNumberOf(9)).isEqualTo("IX");
     }
 
     @Test
-    public void given42_shouldReturn_XLII() {
+    void given42_shouldReturn_XLII() {
         assertThat(romanNumberOf(42)).isEqualTo("XLII");
     }
 
     @Test
-    public void assertThat1984_shouldReturn_MCMLXXXIV() {
+    void assertThat1984_shouldReturn_MCMLXXXIV() {
         assertThat(romanNumberOf(1984)).isEqualTo("MCMLXXXIV");
     }
 
     @Test
-    public void assertThat3000_shouldReturn_MMM() {
+    void assertThat3000_shouldReturn_MMM() {
         assertThat(romanNumberOf(3000)).isEqualTo("MMM");
     }
 

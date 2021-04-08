@@ -1,6 +1,6 @@
 package kata.christmastree;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -41,72 +41,72 @@ import static org.assertj.core.api.Assertions.assertThat;
  *    ###o#
  *      |
  */
-public class ChristmasTreeTest {
+final class ChristmasTreeTest {
 
     @Test
-    public void givenZeroHeight_shouldJustReturnTheTreeStomp() {
+    void givenZeroHeight_shouldJustReturnTheTreeStomp() {
         var tree = new ChristmasTree()
                 .withLayers(0)
                 .grow();
 
         assertThat(tree).isEqualTo("""
-                |
-                """);
+                                   |
+                                   """);
     }
 
     @Test
-    public void givenHeight_1_shouldReturnTreeWithOneLeaf() {
+    void givenHeight_1_shouldReturnTreeWithOneLeaf() {
         var tree = new ChristmasTree()
                 .withLayers(1)
                 .grow();
 
         assertThat(tree).isEqualTo("""
-                #
-                |
-                """);
+                                   #
+                                   |
+                                   """);
     }
 
     @Test
-    public void givenHeight_2_shouldReturnSmallTree() {
+    void givenHeight_2_shouldReturnSmallTree() {
         var tree = new ChristmasTree()
                 .withLayers(2)
                 .grow();
 
         assertThat(tree).isEqualTo("""
-                 #
-                ###
-                 |
-                """);
+                                    #
+                                   ###
+                                    |
+                                   """);
     }
 
     @Test
-    public void givenHeight_3_shouldReturnLittleGrownTree() {
+    void givenHeight_3_shouldReturnLittleGrownTree() {
         var tree = new ChristmasTree()
                 .withLayers(3)
                 .grow();
 
         assertThat(tree).isEqualTo("""
-                  #
-                 ###
-                #####
-                  |
-                """);
+                                     #
+                                    ###
+                                   #####
+                                     |
+                                   """);
     }
 
     @Test
-    public void givenStar_shouldDrawStar() {
+    void givenStar_shouldDrawStar() {
         var tree = new ChristmasTree()
                 .withLayers(3)
                 .withTopping('+')
                 .grow();
 
         assertThat(tree).isEqualTo("""
-                  +
-                  #
-                 ###
-                #####
-                  |
-                """);
+                                     +
+                                     #
+                                    ###
+                                   #####
+                                     |
+                                   """);
     }
 
 }
